@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="id" class="dark h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOPENG - Telaah Opini, Penafsiran, Empati, Narasi & Gubahan Sastra</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            midnight: '#040914',
+            ocean: '#0A1128',
+            deepblue: '#0F1C3F',
+            kebaya: '#1F6A78',
+            tealness: '#0D9488',
+            gold: '#FFD700',
+            goldamber: '#F59E0B',
+            goldlight: '#FEF08A',
+            flame: '#EF4444',
+            lontar: '#FFFBEB',
+            lontardark: '#FEF3C7'
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Cambria', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Master Styles -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Cinzel:wght@600;800;900&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap');
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #040914;
+      color: #E2E8F0;
+      overflow-x: hidden;
+    }
+
+    .font-cinzel { font-family: 'Cinzel', serif; }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #040914; }
+    ::-webkit-scrollbar-thumb { background: #F59E0B; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #FFD700; }
+
+    /* Glassmorphic Effects */
+    .glass-card {
+      background: rgba(10, 17, 40, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+    }
+
+    .glass-card-gold {
+      background: rgba(15, 28, 63, 0.85);
+      backdrop-filter: blur(12px);
+      border: 2px solid #F59E0B;
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.15);
+    }
+
+    .lontar-card {
+      background-color: #FFFBEB;
+      color: #1E293B;
+      border: 2px solid #F59E0B;
+      background-image: radial-gradient(#F59E0B 0.5px, transparent 0.5px);
+      background-size: 16px 16px;
+      box-shadow: inset 0 0 20px rgba(217, 119, 6, 0.15), 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    /* Glow Animations */
+    @keyframes moonGlow {
+      0%, 100% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.3), inset 0 0 30px rgba(255, 215, 0, 0.2); }
+      50% { box-shadow: 0 0 90px rgba(255, 215, 0, 0.55), inset 0 0 50px rgba(255, 215, 0, 0.4); }
+    }
+    .moon-glow { animation: moonGlow 6s infinite ease-in-out; }
+
+    @keyframes birdFly {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    .bird-anim { animation: birdFly 4s infinite ease-in-out; }
+
+    @keyframes waveMove {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(-25px); }
+      100% { transform: translateX(0); }
+    }
+    .wave-anim { animation: waveMove 10s infinite ease-in-out; }
+
+    /* Custom Gold Text Gradient */
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #FFF59D 0%, #FFD700 50%, #B45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-ocean-gradient {
+      background: linear-gradient(135deg, #38BDF8 0%, #0D9488 50%, #1F6A78 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="h-full min-h-screen flex flex-col justify-between relative selection:bg-goldamber selection:text-midnight">
+
+  <!-- BACKGROUND GRAPHICS: MAHA REMBULAN, GARUDA & MEGA MENDUNG -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <!-- Rembulan Agung Glowing Halo -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 md:w-[500px] md:h-[500px] rounded-full bg-gradient-to-br from-goldlight via-goldamber to-amber-900 opacity-20 moon-glow blur-2xl"></div>
+    <div class="absolute top-10 right-10 w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-tr from-amber-100 to-amber-300 opacity-10 moon-glow border-2 border-goldamber/40"></div>
+
+    <!-- Garuda Phoenix Emas SVG -->
+    <div class="absolute top-16 left-8 md:left-24 opacity-25 bird-anim hidden md:block">
+      <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 10 L60 35 L85 20 L70 45 L95 60 L68 65 L75 90 L50 72 L25 90 L32 65 L5 60 L30 45 L15 20 L40 35 Z" fill="url(#garudaGold)"/>
+        <defs>
+          <linearGradient id="garudaGold" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFD700"/>
+            <stop offset="1" stop-color="#D97706"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- Background Stars / Aurora Particles -->
+    <div class="absolute top-1/4 left-1/3 w-2 h-2 rounded-full bg-gold opacity-60 animate-ping"></div>
+    <div class="absolute top-2/3 right-1/4 w-3 h-3 rounded-full bg-tealness opacity-50 animate-pulse"></div>
+    <div class="absolute bottom-1/3 left-10 w-2 h-2 rounded-full bg-amber-400 opacity-70"></div>
+
+    <!-- Ombak Samudra & Mega Mendung Bottom Wave Graphic -->
+    <div class="absolute bottom-0 inset-x-0 h-32 opacity-20 wave-anim">
+      <svg class="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#0D9488" fill-opacity="0.6" d="M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,213.3C672,224,768,192,864,165.3C960,139,1056,117,1152,128C1248,139,1344,181,1392,202.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        <path fill="#F59E0B" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,154.7C384,149,480,107,576,112C672,117,768,171,864,181.3C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="relative z-20 border-b border-goldamber/30 bg-midnight/90 backdrop-blur-md sticky top-0 px-4 lg:px-8 py-3">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+      
+      <!-- LOGO & HEADING -->
+      <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('pelacak')">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-goldamber via-amber-600 to-amber-900 p-0.5 shadow-lg shadow-goldamber/20">
+          <div class="w-full h-full bg-midnight rounded-[10px] flex items-center justify-center">
+            <span class="font-cinzel text-2xl font-black text-gold-gradient">T</span>
+          </div>
+        </div>
+        <div>
+          <h1 class="font-cinzel text-xl md:text-2xl font-black tracking-wider text-gold-gradient leading-none">
+            TOPENG
+          </h1>
+          <p class="text-[10px] md:text-xs text-amber-200/80 font-serif tracking-widest uppercase mt-0.5">
+            Telaah Opini • Penafsiran • Empati • Narasi • Gubahan
+          </p>
+        </div>
+      </div>
+
+      <!-- NAV TABS -->
+      <nav class="flex items-center gap-1 md:gap-2 bg-ocean/80 p-1.5 rounded-2xl border border-goldamber/30 text-xs md:text-sm font-semibold overflow-x-auto max-w-full">
+        <button id="nav-pelacak" onclick="switchTab('pelacak')" class="nav-btn px-3 md:px-4 py-2 rounded-xl flex items-center gap-2 transition-all bg-goldamber text-midnight font-bold shadow-md">
+          <i data-lucide="scan-search" class="w-4 h-4"></i>
+          <span>Pelacak Topeng</span>
+        </button>
+
+        <button id="nav-refleksi" onclick="switchTab('refleksi')" class="nav-btn px-3 md:px-4 py-2 rounded-xl flex items-center gap-2 transition-all text-slate-300 hover:text-gold hover:bg-white/5">
+          <i data-lucide="layers" class="w-4 h-4"></i>
+          <span>Refleksi Topeng</span>
+        </button>
+
+        <button id="nav-museum" onclick="switchTab('museum')" class="nav-btn px-3 md:px-4 py-2 rounded-xl flex items-center gap-2 transition-all text-slate-300 hover:text-gold hover:bg-white/5">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
+          <span>Museum Sastra</span>
+        </button>
+
+        <button id="nav-pendamping" onclick="switchTab('pendamping')" class="nav-btn px-3 md:px-4 py-2 rounded-xl flex items-center gap-2 transition-all text-slate-300 hover:text-gold hover:bg-white/5">
+          <i data-lucide="compass" class="w-4 h-4"></i>
+          <span>Pendamping Bahasa</span>
+        </button>
+      </nav>
+
+      <!-- AUDIO SYNTHESIZER & AMBIENCE TOGGLE -->
+      <div class="hidden xl:flex items-center gap-2">
+        <button id="audio-toggle-btn" onclick="toggleAudioAmbience()" class="px-3 py-1.5 rounded-xl border border-goldamber/40 bg-deepblue hover:bg-goldamber/20 text-amber-300 text-xs flex items-center gap-2 transition-all">
+          <i data-lucide="volume-2" class="w-4 h-4 text-gold"></i>
+          <span id="audio-status-text">Audio Gamelan: Off</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER (SINGLE-PAGE DASHBOARD) -->
+  <main class="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 py-6 flex-grow w-full">
+
+    <!-- ======================================================== -->
+    <!-- FITUR 1: PELACAK TOPENG & KACAMATA EMPATI -->
+    <!-- ================================================= realm -->
+    <section id="tab-pelacak" class="tab-content space-y-6">
+      
+      <!-- HEADER BANNER -->
+      <div class="glass-card-gold rounded-3xl p-6 md:p-8 relative overflow-hidden">
+        <div class="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 bg-[radial-gradient(#FFD700_1px,transparent_1px)] [background-size:12px_12px] pointer-events-none"></div>
+        <div class="max-w-3xl space-y-3">
+          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-goldamber/20 border border-goldamber text-gold">
+            Pillar I • Deconstruction & Empathy
+          </span>
+          <h2 class="font-playfair text-2xl md:text-4xl font-bold text-gold-gradient">
+            Pelacak Topeng & Kacamata Empati
+          </h2>
+          <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+            Bedah klaim mutlak, label polarizing, dan kata-kata bertopeng di ruang digital. Ubah diksi yang kaku dan penuh prasangka menjadi cermin refleksi sastrawi bertumpu pada empati manusiawi.
+          </p>
+        </div>
+      </div>
+
+      <!-- MAIN SCANNER WORKSPACE -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- INPUT & PARSER AREA (LEFT 7 COLS) -->
+        <div class="lg:col-span-7 glass-card rounded-3xl p-6 space-y-5">
+          <div class="flex items-center justify-between">
+            <h3 class="font-serif font-bold text-lg text-amber-200 flex items-center gap-2">
+              <i data-lucide="file-search" class="w-5 h-5 text-goldamber"></i>
+              Input Wacana Digital / Klaim Media
+            </h3>
+            <div class="flex gap-2">
+              <button onclick="loadSampleText(1)" class="text-xs bg-deepblue hover:bg-kebaya border border-goldamber/30 text-amber-200 px-2.5 py-1 rounded-lg transition-all">
+                Contoh 1 (Karhutla)
+              </button>
+              <button onclick="loadSampleText(2)" class="text-xs bg-deepblue hover:bg-kebaya border border-goldamber/30 text-amber-200 px-2.5 py-1 rounded-lg transition-all">
+                Contoh 2 (Krisis)
+              </button>
+            </div>
+          </div>
+
+          <div class="relative">
+            <textarea id="scanner-input" rows="5" class="w-full bg-midnight/90 border border-goldamber/40 rounded-2xl p-4 text-slate-200 text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all resize-none font-sans" placeholder="Ketik atau tempelkan narasi/klaim berita di sini... (Contoh: 'Semua kabar soal kebakaran hutan itu pasti hoaks dan buatan asing!')"></textarea>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2 text-xs text-slate-400">
+              <i data-lucide="info" class="w-4 h-4 text-goldamber"></i>
+              <span>Sistem mendeteksi kata mutlak, label klaim, & prasangka diksi.</span>
+            </div>
+            <button onclick="analyzeText()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-goldamber to-amber-600 hover:from-amber-500 hover:to-gold text-midnight font-bold text-sm shadow-lg shadow-goldamber/20 flex items-center gap-2 transition-all transform hover:-translate-y-0.5">
+              <i data-lucide="cpu" class="w-4 h-4"></i>
+              <span>Dekonstruksi Topeng</span>
+            </button>
+          </div>
+
+          <!-- DETECTED MASKS BREAKDOWN -->
+          <div id="scanner-results-box" class="pt-4 border-t border-goldamber/20 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Hasil Pemindaian Bias & Masking</span>
+              <span id="neutrality-score-badge" class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-green-500/20 text-green-300 border border-green-500/40">
+                Netralitas: 85%
+              </span>
+            </div>
+
+            <!-- GAUGE BAR -->
+            <div class="w-full bg-midnight/80 h-3 rounded-full overflow-hidden border border-goldamber/30 p-0.5">
+              <div id="neutrality-gauge" class="bg-gradient-to-r from-flame via-goldamber to-emerald-400 h-full rounded-full transition-all duration-700" style="width: 85%;"></div>
+            </div>
+
+            <!-- DETECTED ANNOTATIONS -->
+            <div id="detected-tags-container" class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-red-950/60 border border-flame/40 text-red-200 flex items-center gap-1.5">
+                <i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-flame"></i>
+                Kata Absolut: "Semua"
+              </span>
+              <span class="px-2.5 py-1 rounded-lg bg-amber-950/60 border border-amber-500/40 text-amber-200 flex items-center gap-1.5">
+                <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-amber-400"></i>
+                Label Tanpa Bukti: "Hoaks"
+              </span>
+            </div>
+
+            <!-- AUTO DEBIASER ACTION -->
+            <div class="bg-deepblue/60 rounded-2xl p-4 border border-tealness/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+              <div>
+                <span class="text-xs font-bold text-tealness uppercase tracking-wider block">Versi Auto-Debiaser (Bahasa Jernih)</span>
+                <p id="debiased-text" class="text-xs md:text-sm text-slate-200 italic mt-1">
+                  "Sejumlah laporan mengenai kebakaran hutan sedang diverifikasi melalui perbandingan data lapangan dan satelit."
+                </p>
+              </div>
+              <button onclick="copyDebiasedText()" class="px-3 py-1.5 rounded-lg bg-kebaya hover:bg-tealness text-amber-100 text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Salin Teks</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- KACAMATA EMPATI LITERARY REFLECTION (RIGHT 5 COLS) -->
+        <div class="lg:col-span-5 glass-card-gold rounded-3xl p-6 space-y-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 border-b border-goldamber/30 pb-3">
+              <i data-lucide="heart-handshake" class="w-6 h-6 text-gold"></i>
+              <div>
+                <h3 class="font-serif font-bold text-lg text-gold-gradient">Engine Kacamata Empati</h3>
+                <p class="text-xs text-amber-200/70">Memantulkan 3 Sudut Pandang Manusiawi</p>
+              </div>
+            </div>
+
+            <!-- PERSPECTIVE TABS / DISPLAY -->
+            <div class="mt-4 space-y-4">
+              <!-- PERSPECTIVE 1: WARGA TERDAMPAK -->
+              <div class="bg-midnight/90 border border-goldamber/30 rounded-2xl p-4 space-y-2">
+                <div class="flex items-center gap-2 text-xs font-bold text-gold">
+                  <i data-lucide="users" class="w-4 h-4 text-goldamber"></i>
+                  <span>PERSPEKTIF WARGA TERDAMPAK</span>
+                </div>
+                <p id="persp-warga" class="text-xs md:text-sm text-slate-300 font-serif italic leading-relaxed">
+                  "Bagi kami di pinggir hutan, asap ini bukan sekadar istilah berita atau perdebatan angka. Asap ini adalah sesak napas anak-anak kami di setiap subuh yang diselimuti kabut tebal."
+                </p>
+              </div>
+
+              <!-- PERSPECTIVE 2: PENELITI LINGKUNGAN -->
+              <div class="bg-midnight/90 border border-goldamber/30 rounded-2xl p-4 space-y-2">
+                <div class="flex items-center gap-2 text-xs font-bold text-sky-400">
+                  <i data-lucide="microscope" class="w-4 h-4 text-sky-400"></i>
+                  <span>PERSPEKTIF PENELITI LINGKUNGAN</span>
+                </div>
+                <p id="persp-peneliti" class="text-xs md:text-sm text-slate-300 font-serif italic leading-relaxed">
+                  "Setiap hektare yang terlewat dari pencatatan adalah data keanekaragaman hayati yang hilang. Metodologi harus terus disempurnakan demi akurasi pemulihan ekosistem."
+                </p>
+              </div>
+
+              <!-- PERSPECTIVE 3: PERTANYAAN SASTRAWI -->
+              <div class="bg-midnight/90 border border-goldamber/30 rounded-2xl p-4 space-y-2">
+                <div class="flex items-center gap-2 text-xs font-bold text-emerald-400">
+                  <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i>
+                  <span>PERTANYAAN SASTRAWI (REFLEKSI)</span>
+                </div>
+                <p id="persp-sastra" class="text-xs md:text-sm text-slate-300 font-serif italic leading-relaxed">
+                  "Ketika bahasa kita kehabisan kata untuk menggambarkan penderitaan, maukah kita belajar mendengarkan sunyinya hutan yang terbakar?"
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-goldamber/20 text-center">
+            <span class="text-[11px] text-amber-200/60 italic">
+              "Sastra hadir bukan untuk menghakimi topeng, melainkan menyalakan cermin kejujuran."
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- FITUR 2: REFLEKSI TOPENG & SIMULASI NARASI (KARHUTLA 2026) -->
+    <!-- ================================================= realm -->
+    <section id="tab-refleksi" class="tab-content hidden space-y-6">
+      
+      <!-- HEADER BANNER WITH VERIFICATION NOTES -->
+      <div class="glass-card-gold rounded-3xl p-6 md:p-8 relative overflow-hidden">
+        <div class="max-w-4xl space-y-3">
+          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-flame/20 border border-flame text-red-300">
+            Pillar II • Data Verification & Narrative Gamification
+          </span>
+          <h2 class="font-playfair text-2xl md:text-4xl font-bold text-gold-gradient">
+            Refleksi Topeng: Karhutla Kalteng 2026 & Simulasi Narasi
+          </h2>
+          <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+            Menyingkap jurang (*gap*) antara narasi kata, angka empiris, dan kenyataan manusiawi melalui studi kasus Karhutla Kalimantan Tengah 2026. Uji pula keputusan berbahasa Anda dalam Simulasi Narasi Publik.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3D DEPTH LAYER SLIDER / TOGGLE -->
+      <div class="glass-card rounded-3xl p-6 space-y-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-goldamber/30 pb-4">
+          <div>
+            <h3 class="font-serif font-bold text-xl text-gold-gradient">Mekanisme Geser Topeng 3D</h3>
+            <p class="text-xs text-slate-400">Pilih atau geser lapisan untuk melihat perubahan persepsi realitas</p>
+          </div>
+          
+          <!-- LAYER BUTTONS -->
+          <div class="flex bg-midnight rounded-2xl p-1.5 border border-goldamber/40">
+            <button id="layer-btn-1" onclick="selectLayer(1)" class="layer-tab px-4 py-2 rounded-xl text-xs font-bold transition-all bg-goldamber text-midnight shadow">
+              1. Lapisan Kataku (Narasi)
+            </button>
+            <button id="layer-btn-2" onclick="selectLayer(2)" class="layer-tab px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-300 hover:text-gold">
+              2. Lapisan Angkaku (Data)
+            </button>
+            <button id="layer-btn-3" onclick="selectLayer(3)" class="layer-tab px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-300 hover:text-gold">
+              3. Lapisan Cerminku (Sastra)
+            </button>
+          </div>
+        </div>
+
+        <!-- LAYER DISPLAY CARDS -->
+        <div class="relative min-h-[300px]">
+          
+          <!-- LAYER 1: KATAKU (NARASI RESMI) -->
+          <div id="layer-content-1" class="layer-view space-y-4">
+            <div class="bg-deepblue/80 border border-amber-500/30 rounded-2xl p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                  Framing Resmi / Headline
+                </span>
+                <span class="text-xs text-slate-400">Sumber: Agregasi Rilis Pers 2026</span>
+              </div>
+              <h4 class="font-serif text-xl font-bold text-slate-100">
+                "Penanganan Karhutla Kalteng Terkendali, Jumlah Titik Panas Mengalami Anomali Cuaca Fluktuatif"
+              </h4>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Pemerintah menegaskan bahwa situasi di lapangan terkendali. Berbagai kabar berlebihan di media sosial mengenai luas kebakaran yang sangat masif dikategorikan sebagai informasi yang belum terverifikasi secara resmi.
+              </p>
+              <div class="p-3 bg-midnight/80 rounded-xl border border-goldamber/20 text-xs text-amber-200/80 italic">
+                Ciri Topeng Bahasa: Penggunaan istilah teknis 'anomali fluktuatif' meredam kegentingan situasi empiris bagi masyarakat umum.
+              </div>
+            </div>
+          </div>
+
+          <!-- LAYER 2: ANGKAKU (DATA EMPIRIS VERIFIKASI 2026) -->
+          <div id="layer-content-2" class="layer-view hidden space-y-4">
+            <div class="bg-midnight/90 border border-goldamber/50 rounded-2xl p-6 space-y-5">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-goldamber/20 pb-3">
+                <div>
+                  <span class="px-3 py-1 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/40">
+                    Matrix Verifikasi Data Karhutla Kalteng (2026)
+                  </span>
+                  <p class="text-xs text-slate-400 mt-1">Tanggal Akses Verifikasi Data: <strong class="text-gold">26 Oktober 2026</strong></p>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-bold text-flame">Gap Selisih Analisis: +850% Delta</span>
+                </div>
+              </div>
+
+              <!-- COMPARISON GRID -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <!-- SIPONGI KLHK -->
+                <div class="bg-deepblue/90 p-4 rounded-xl border border-sky-500/30 space-y-2">
+                  <div class="flex justify-between items-center">
+                    <span class="text-xs font-bold text-sky-300 uppercase">Data SiPongi (KLHK/Kemenhut)</span>
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400"></i>
+                  </div>
+                  <div class="text-2xl font-black text-slate-100 font-cinzel">
+                    ~202.000 <span class="text-sm font-sans font-normal text-slate-300">Hektare</span>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Catatan periode Jan–Ags 2026 berbasis verifikasi lapangan patroli BPBD/Manggala Agni dan konfirmasi grounding hotspot.
+                  </p>
+                </div>
+
+                <!-- NUSANTARA ATLAS -->
+                <div class="bg-deepblue/90 p-4 rounded-xl border border-flame/30 space-y-2">
+                  <div class="flex justify-between items-center">
+                    <span class="text-xs font-bold text-red-300 uppercase">Data Satelit Nusantara Atlas</span>
+                    <i data-lucide="radar" class="w-4 h-4 text-flame"></i>
+                  </div>
+                  <div class="text-2xl font-black text-flame font-cinzel">
+                    ~1.920.000 <span class="text-sm font-sans font-normal text-slate-300">Hektare</span>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Laporan akumulasi hingga akhir Sept 2026 menggunakan analisis citra satelit radar Sentinel/MODIS beresolusi tinggi.
+                  </p>
+                </div>
+
+              </div>
+
+              <!-- PHILOSOPHICAL DATA NOTE -->
+              <div class="p-4 rounded-xl bg-amber-950/40 border border-goldamber/40 text-xs text-amber-200 leading-relaxed">
+                <strong class="text-gold block mb-1">Catatan Metodologis & Pesan Filosofis Data:</strong>
+                Perbedaan angka ini tidak dimaksudkan untuk menuduh salah satu pihak, melainkan membuktikan secara ilmiah bahwa pilihan metodologi, rentang periode, serta pembingkian istilah (*framing*) secara langsung menentukan bentuk kenyataan yang sampai ke mata publik.
+              </div>
+            </div>
+          </div>
+
+          <!-- LAYER 3: CERMINKU (SASTRA WARGA) -->
+          <div id="layer-content-3" class="layer-view hidden space-y-4">
+            <div class="lontar-card rounded-2xl p-6 space-y-4">
+              <div class="flex items-center justify-between border-b border-amber-900/20 pb-2">
+                <span class="text-xs font-bold text-amber-900 uppercase tracking-wider">Cermin Warga • Monolog Kabut</span>
+                <span class="text-xs font-serif italic text-amber-800">Karya: Sapto, Warga Palangka Raya</span>
+              </div>
+              <blockquote class="font-serif italic text-sm md:text-base text-amber-950 leading-relaxed">
+                "Di koran mereka bertengkar tentang angka hektare. Ada yang bilang puluhan ribu, ada yang bilang jutaan. Tapi di dalam kamar tidur anakku yang berusia empat tahun, angka-angka itu tidak ada gunanya. Yang ada hanya tabung oksigen kecil dan napasnya yang tersengal-sengal. Asap tidak pernah membaca metodologi satelit, ia hanya masuk melewati celah pintu rumah kami."
+              </blockquote>
+              <div class="text-right">
+                <button onclick="switchTab('museum')" class="text-xs font-bold text-amber-900 underline hover:text-amber-700">
+                  Lihat Selengkapnya di Museum Sastra &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SIMULASI BENCANA & NARASI (ROLEPLAY GAMIFICATION) -->
+      <div class="glass-card-gold rounded-3xl p-6 space-y-5">
+        <div class="flex items-center gap-3 border-b border-goldamber/30 pb-3">
+          <i data-lucide="gamepad-2" class="w-6 h-6 text-gold"></i>
+          <div>
+            <h3 class="font-serif font-bold text-lg text-gold-gradient">Simulasi Narasi Publik (Interactive Roleplay)</h3>
+            <p class="text-xs text-amber-200/70">Peran: Pejabat Komunikasi Publik / Jurnalis Utama</p>
+          </div>
+        </div>
+
+        <p class="text-xs md:text-sm text-slate-300">
+          Skenario: Laporan awal menunjukkan lonjakan titik api Karhutla Kalteng. Pilihlah jenis judul narasi yang akan Anda rilis ke masyarakat luas, dan lihat dampaknya terhadap Indeks Kepercayaan & Kepanikan Publik.
+        </p>
+
+        <!-- CHOICE OPTIONS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <button onclick="runSimulation('eufemisme')" class="p-4 rounded-2xl bg-midnight border border-goldamber/30 hover:border-gold text-left space-y-2 transition-all group">
+            <span class="text-xs font-bold text-amber-400 block group-hover:text-gold">Pilihan A: Eufemisme Kaku</span>
+            <p class="text-xs text-slate-300">"Kondisi Cuaca Kalteng Memasuki Penyesuaian Musim, Masyarakat Dihimbau Tenang"</p>
+          </button>
+
+          <button onclick="runSimulation('sensasi')" class="p-4 rounded-2xl bg-midnight border border-goldamber/30 hover:border-flame text-left space-y-2 transition-all group">
+            <span class="text-xs font-bold text-flame block">Pilihan B: Sensasional / Bombastis</span>
+            <p class="text-xs text-slate-300">"Kalteng Terbakar Hebat! Jutaan Hektare Lenyap Dilalap Api Tanpa Sisa!"</p>
+          </button>
+
+          <button onclick="runSimulation('transparan')" class="p-4 rounded-2xl bg-midnight border border-goldamber/30 hover:border-emerald-400 text-left space-y-2 transition-all group">
+            <span class="text-xs font-bold text-emerald-400 block">Pilihan C: Transparan & Empatis</span>
+            <p class="text-xs text-slate-300">"Lonjakan Titik Api Kalteng Capai Luas Signifikan; Tim Verifikasi Gabungan Disiagakan"</p>
+          </button>
+        </div>
+
+        <!-- SIMULATION FEEDBACK BOX -->
+        <div id="sim-feedback" class="p-4 rounded-2xl bg-deepblue border border-tealness/40 space-y-3 hidden">
+          <div class="flex items-center justify-between text-xs font-bold">
+            <span id="sim-title" class="text-gold">Hasil Dampak Pilihan Narasi</span>
+            <span id="sim-score" class="text-tealness">Integritas Narasi: 90%</span>
+          </div>
+          <p id="sim-desc" class="text-xs md:text-sm text-slate-200 leading-relaxed"></p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- FITUR 3: MUSEUM SASTRA & PETA SUARA LINTAS DAERAH -->
+    <!-- ================================================= realm -->
+    <section id="tab-museum" class="tab-content hidden space-y-6">
+      
+      <!-- HEADER BANNER -->
+      <div class="glass-card-gold rounded-3xl p-6 md:p-8 relative overflow-hidden">
+        <div class="max-w-3xl space-y-3">
+          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/20 border border-emerald-500 text-emerald-300">
+            Pillar III • Citizen Literature & Regional Soundscape
+          </span>
+          <h2 class="font-playfair text-2xl md:text-4xl font-bold text-gold-gradient">
+            Museum Sastra & Peta Suara Nusantara
+          </h2>
+          <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+            Arsip suara kejujuran warga terdampak dari berbagai wilayah Nusantara. Ubah data dan kebingungan menjadi gubahan puisi, cerpen mini, monolog, atau surat warga di Studio Gubahan.
+          </p>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE REGIONAL MAP & ARCHIVE -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- REGIONAL MAP POINTS (LEFT 5 COLS) -->
+        <div class="lg:col-span-5 glass-card rounded-3xl p-6 space-y-4">
+          <h3 class="font-serif font-bold text-lg text-amber-200 flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-5 h-5 text-goldamber"></i>
+            Peta Suara Lintas Daerah
+          </h3>
+          <p class="text-xs text-slate-400">Klik titik daerah untuk mendengarkan Cermin Warga setempat:</p>
+
+          <!-- INTERACTIVE MAP CONTAINER -->
+          <div class="relative w-full h-64 bg-deepblue/90 rounded-2xl border border-goldamber/30 p-4 flex items-center justify-center overflow-hidden">
+            <!-- SVG Map Silhouette Placeholder -->
+            <svg class="w-full h-full opacity-30" viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 80 Q100 50 150 90 T250 80 T350 100 T450 70" stroke="#FFD700" stroke-width="2" stroke-dasharray="4 4"/>
+              <circle cx="120" cy="90" r="20" fill="#0D9488" opacity="0.3"/>
+              <circle cx="210" cy="80" r="25" fill="#F59E0B" opacity="0.3"/>
+              <circle cx="310" cy="110" r="20" fill="#EF4444" opacity="0.3"/>
+              <circle cx="420" cy="95" r="22" fill="#10B981" opacity="0.3"/>
+            </svg>
+
+            <!-- MAP PIN BUTTONS -->
+            <button onclick="loadRegionalText('kalteng')" class="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 p-2 bg-goldamber text-midnight rounded-full font-bold text-xs shadow-lg shadow-goldamber/50 hover:scale-110 transition-all flex items-center gap-1">
+              <i data-lucide="flame" class="w-3.5 h-3.5"></i>
+              <span>Kalteng</span>
+            </button>
+
+            <button onclick="loadRegionalText('riau')" class="absolute top-1/3 left-1/5 transform -translate-x-1/2 -translate-y-1/2 p-2 bg-tealness text-white rounded-full font-bold text-xs shadow-lg hover:scale-110 transition-all flex items-center gap-1">
+              <i data-lucide="droplet" class="w-3.5 h-3.5"></i>
+              <span>Riau</span>
+            </button>
+
+            <button onclick="loadRegionalText('jabar')" class="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-2 bg-indigo-500 text-white rounded-full font-bold text-xs shadow-lg hover:scale-110 transition-all flex items-center gap-1">
+              <i data-lucide="mountain" class="w-3.5 h-3.5"></i>
+              <span>Jawa Barat</span>
+            </button>
+
+            <button onclick="loadRegionalText('papua')" class="absolute top-1/2 right-10 transform -translate-x-1/2 -translate-y-1/2 p-2 bg-emerald-500 text-white rounded-full font-bold text-xs shadow-lg hover:scale-110 transition-all flex items-center gap-1">
+              <i data-lucide="trees" class="w-3.5 h-3.5"></i>
+              <span>Papua</span>
+            </button>
+          </div>
+
+          <!-- REGIONAL CARD DISPLAY -->
+          <div id="regional-card-display" class="bg-midnight/90 p-4 rounded-2xl border border-goldamber/30 space-y-2">
+            <span id="reg-region" class="text-xs font-bold text-gold uppercase tracking-wider block">Wilayah: Kalimantan Tengah</span>
+            <h4 id="reg-title" class="font-serif font-bold text-slate-100 text-sm">"Nyanyian Hutan yang Terbakar"</h4>
+            <p id="reg-body" class="text-xs text-slate-300 italic font-serif leading-relaxed">
+              "Asap mengepung desa kami selama tiga minggu. Di bawah topeng kata 'terkendali', kami belajar bernapas dalam sunyi."
+            </p>
+          </div>
+        </div>
+
+        <!-- STUDIO GUBAHAN SASTRA (RIGHT 7 COLS) -->
+        <div class="lg:col-span-7 lontar-card rounded-3xl p-6 space-y-5 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-amber-900/20 pb-3">
+              <div>
+                <h3 class="font-serif font-bold text-xl text-amber-950">Studio Gubahan Sastra</h3>
+                <p class="text-xs text-amber-800">Kanvas Penulisan Karya Kertas Lontar</p>
+              </div>
+              <div class="flex gap-2">
+                <select id="karya-type" class="bg-amber-100 border border-amber-700/40 text-amber-950 text-xs rounded-xl p-2 font-bold focus:outline-none">
+                  <option value="Puisi">Puisi</option>
+                  <option value="Cerpen Mini">Cerpen Mini</option>
+                  <option value="Monolog">Monolog</option>
+                  <option value="Surat Warga">Surat Warga</option>
+                </select>
+                <button onclick="generatePrompt()" class="px-3 py-1.5 rounded-xl bg-amber-800 hover:bg-amber-900 text-amber-100 text-xs font-bold transition-all flex items-center gap-1">
+                  <i data-lucide="wand-2" class="w-3.5 h-3.5"></i>
+                  <span>Prompt AI</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- TITLE & BODY INPUT -->
+            <input id="karya-title" type="text" class="w-full bg-amber-50/80 border border-amber-800/30 rounded-xl p-3 text-amber-950 font-serif font-bold text-base focus:outline-none focus:border-amber-700 placeholder-amber-800/50" placeholder="Judul Karya Sastra Anda...">
+            
+            <textarea id="karya-body" rows="8" class="w-full bg-amber-50/80 border border-amber-800/30 rounded-xl p-4 text-amber-950 font-serif text-sm leading-relaxed focus:outline-none focus:border-amber-700 resize-none placeholder-amber-800/50" placeholder="Tuliskan bait puisi, narasi cerpen, atau monolog reflektif Anda di sini..."></textarea>
+          </div>
+
+          <!-- FOOTER ACTIONS & COUNTER -->
+          <div class="pt-3 border-t border-amber-900/20 flex flex-wrap items-center justify-between gap-3">
+            <span id="char-counter" class="text-xs text-amber-800 font-serif">0 Karakter • 0 Kata</span>
+            
+            <div class="flex gap-2">
+              <button onclick="exportKarya('txt')" class="px-3 py-2 rounded-xl bg-amber-200 hover:bg-amber-300 text-amber-950 text-xs font-bold transition-all flex items-center gap-1 border border-amber-800/20">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                <span>Unduh .TXT</span>
+              </button>
+              <button onclick="exportKarya('print')" class="px-4 py-2 rounded-xl bg-amber-900 hover:bg-amber-950 text-amber-100 text-xs font-bold transition-all flex items-center gap-1 shadow-md">
+                <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+                <span>Cetak / PDF</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- FITUR 4: PENDAMPING BAHASA & KAMUS DIKSI NUSANTARA -->
+    <!-- ================================================= realm -->
+    <section id="tab-pendamping" class="tab-content hidden space-y-6">
+      
+      <!-- HEADER BANNER -->
+      <div class="glass-card-gold rounded-3xl p-6 md:p-8 relative overflow-hidden">
+        <div class="max-w-3xl space-y-3">
+          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/20 border border-amber-500 text-amber-300">
+            Pillar IV • Diction Lexicon & Expert Consultation
+          </span>
+          <h2 class="font-playfair text-2xl md:text-4xl font-bold text-gold-gradient">
+            Pendamping Bahasa & Kamus Diksi Nusantara
+          </h2>
+          <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+            Jembatani diksi teknis-birokratis yang kaku dengan kekayaan kata sastra puitis Nusantara. Konsultasikan pula struktur gagasan Anda bersama ahli bahasa dan sastrawan interaktif.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- KAMUS DIKSI NUSANTARA (LEFT 7 COLS) -->
+        <div class="lg:col-span-7 glass-card rounded-3xl p-6 space-y-5">
+          <div class="flex items-center justify-between border-b border-goldamber/30 pb-3">
+            <h3 class="font-serif font-bold text-lg text-amber-200 flex items-center gap-2">
+              <i data-lucide="book" class="w-5 h-5 text-goldamber"></i>
+              Kamus Padanan Diksi Sastra
+            </h3>
+            <span class="text-xs text-slate-400">Teknis Birokrasi &rarr; Puitis Nusantara</span>
+          </div>
+
+          <!-- SEARCH INPUT -->
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-goldamber absolute left-4 top-1/2 transform -translate-y-1/2"></i>
+            <input id="lexicon-search" type="text" oninput="filterLexicon()" class="w-full bg-midnight border border-goldamber/40 rounded-2xl pl-11 pr-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold" placeholder="Cari istilah birokrasi (misal: 'deforestasi', 'anomali', 'mitigasi')...">
+          </div>
+
+          <!-- LEXICON LIST -->
+          <div id="lexicon-container" class="space-y-3 max-h-80 overflow-y-auto pr-2">
+            <!-- DICTION ITEM 1 -->
+            <div class="lexicon-item bg-deepblue/80 p-4 rounded-2xl border border-goldamber/20 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-flame uppercase tracking-wider">Istilah Birokratis: Deforestasi</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-goldamber/20 text-gold">Kategori: Lingkungan</span>
+              </div>
+              <div class="text-sm font-serif text-amber-200 font-bold">
+                Padanan Sastra: <span class="text-gold-gradient">"Penebasan Rimba" / "Luka Belantara"</span>
+              </div>
+              <p class="text-xs text-slate-300 italic">
+                Contoh Kalimat: "Bukan sekadar angka deforestasi, tetapi rimba yang luka dan kehilangan suaranya."
+              </p>
+            </div>
+
+            <!-- DICTION ITEM 2 -->
+            <div class="lexicon-item bg-deepblue/80 p-4 rounded-2xl border border-goldamber/20 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-flame uppercase tracking-wider">Istilah Birokratis: Anomali Cuaca</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-goldamber/20 text-gold">Kategori: Iklim</span>
+              </div>
+              <div class="text-sm font-serif text-amber-200 font-bold">
+                Padanan Sastra: <span class="text-gold-gradient">"Cuaca Merajang" / "Amuk Musim"</span>
+              </div>
+              <p class="text-xs text-slate-300 italic">
+                Contoh Kalimat: "Amuk musim membuat langit enggan menurunkan hujan di tanah yang meranggas."
+              </p>
+            </div>
+
+            <!-- DICTION ITEM 3 -->
+            <div class="lexicon-item bg-deepblue/80 p-4 rounded-2xl border border-goldamber/20 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-flame uppercase tracking-wider">Istilah Birokratis: Fluktuasi Hotspot</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-goldamber/20 text-gold">Kategori: Data</span>
+              </div>
+              <div class="text-sm font-serif text-amber-200 font-bold">
+                Padanan Sastra: <span class="text-gold-gradient">"Pasang Surut Bara" / "Kobar Nyala"</span>
+              </div>
+              <p class="text-xs text-slate-300 italic">
+                Contoh Kalimat: "Pasang surut bara di dada hutan tak pernah benar-benar padam oleh retorika."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONSULTATION SIMULATOR (RIGHT 5 COLS) -->
+        <div class="lg:col-span-5 glass-card-gold rounded-3xl p-6 space-y-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 border-b border-goldamber/30 pb-3">
+              <i data-lucide="message-square" class="w-6 h-6 text-gold"></i>
+              <div>
+                <h3 class="font-serif font-bold text-lg text-gold-gradient">Konsultasi Pakar Bahasa</h3>
+                <p class="text-xs text-amber-200/70">Uji Gagasan Kritis & Deskripsi Sastra</p>
+              </div>
+            </div>
+
+            <!-- CHAT SIMULATION DISPLAY -->
+            <div id="chat-box" class="mt-4 space-y-3 max-h-64 overflow-y-auto pr-1 text-xs">
+              <div class="bg-deepblue p-3 rounded-2xl border border-goldamber/20 space-y-1">
+                <span class="font-bold text-gold block">Pakar Bahasa & Sastra:</span>
+                <p class="text-slate-200">"Salam. Tuliskan draf gagasan atau kalimat Anda. Saya akan membantu mempertajam daya kritis dan estetika bahasanya."</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CHAT INPUT -->
+          <div class="pt-3 border-t border-goldamber/20 flex gap-2">
+            <input id="chat-input" type="text" onkeypress="handleChatKey(event)" class="w-full bg-midnight border border-goldamber/40 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-gold" placeholder="Tulis pertanyaan atau gagasan Anda...">
+            <button onclick="sendChatMessage()" class="px-4 py-2 rounded-xl bg-goldamber text-midnight font-bold text-xs hover:bg-gold transition-all">
+              Kirim
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER CITATION & METRICS -->
+  <footer class="relative z-20 border-t border-goldamber/30 bg-midnight/95 text-slate-400 text-xs py-6 px-4 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div>
+        <p class="font-serif text-amber-200/90 font-bold">
+          TOPENG &copy; 2026 — Platform Sastra & Analisis Diskursus Nusantara
+        </p>
+        <p class="text-[11px] text-slate-500 mt-0.5">
+          Verifikasi Data Karhutla Kalteng (SiPongi & Nusantara Atlas) diakses per 26 Oktober 2026.
+        </p>
+      </div>
+      <div class="flex items-center gap-4 text-[11px] text-amber-300/70">
+        <span>Akurasi Data: Multi-Satelit</span>
+        <span>•</span>
+        <span>Estetika: Serat & Lontar</span>
+        <span>•</span>
+        <span>Audio: Gamelan Pentatonis</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC ENGINE -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // -------------------------------------------------------------
+    // AUDIO GAMELAN SYNTHESIZER (WEB AUDIO API)
+    // -------------------------------------------------------------
+    let audioCtx = null;
+    let isAudioOn = false;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function playGamelanChime(freq = 523.25, type = 'sine', duration = 1.2) {
+      if (!isAudioOn) return;
+      try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+        gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {
+        console.log("Audio not allowed yet");
+      }
+    }
+
+    function toggleAudioAmbience() {
+      isAudioOn = !isAudioOn;
+      const statusText = document.getElementById('audio-status-text');
+      if (isAudioOn) {
+        initAudio();
+        statusText.innerText = 'Audio Gamelan: On';
+        playGamelanChime(261.63, 'triangle', 2.0); // Gong sound
+      } else {
+        statusText.innerText = 'Audio Gamelan: Off';
+      }
+    }
+
+    // -------------------------------------------------------------
+    // TAB SWITCHING ENGINE
+    // -------------------------------------------------------------
+    function switchTab(tabId) {
+      playGamelanChime(523.25, 'sine', 0.8);
+
+      // Hide all contents
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      
+      // Reset all nav styles
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('bg-goldamber', 'text-midnight', 'font-bold', 'shadow-md');
+        btn.classList.add('text-slate-300', 'hover:text-gold');
+      });
+
+      // Show active tab
+      document.getElementById('tab-' + tabId).classList.remove('hidden');
+
+      // Highlight active nav
+      const activeBtn = document.getElementById('nav-' + tabId);
+      activeBtn.classList.add('bg-goldamber', 'text-midnight', 'font-bold', 'shadow-md');
+      activeBtn.classList.remove('text-slate-300');
+    }
+
+    // -------------------------------------------------------------
+    // FITUR 1: PELACAK TOPENG LOGIC
+    // -------------------------------------------------------------
+    const sampleTexts = {
+      1: "Semua kabar soal kebakaran hutan di Kalimantan itu pasti hoaks buatan pihak asing yang ingin menjatuhkan citra negara!",
+      2: "Pemerintah tidak pernah gagal dalam mengatasi krisis iklim; semua tuduhan publik adalah berita bohong yang fiktif."
+    };
+
+    function loadSampleText(num) {
+      document.getElementById('scanner-input').value = sampleTexts[num];
+      analyzeText();
+    }
+
+    function analyzeText() {
+      playGamelanChime(659.25, 'sine', 0.6);
+      const val = document.getElementById('scanner-input').value.trim();
+      const tagsContainer = document.getElementById('detected-tags-container');
+      const gauge = document.getElementById('neutrality-gauge');
+      const scoreBadge = document.getElementById('neutrality-score-badge');
+      const debiased = document.getElementById('debiased-text');
+
+      if (!val) {
+        alert("Mohon ketikkan kalimat wacana terlebih dahulu.");
+        return;
+      }
+
+      // Simple keyword detection logic for demonstration
+      let score = 85;
+      let tagsHTML = "";
+
+      if (val.toLowerCase().includes("semua") || val.toLowerCase().includes("pasti")) {
+        score -= 25;
+        tagsHTML += `<span class="px-2.5 py-1 rounded-lg bg-red-950/60 border border-flame/40 text-red-200 flex items-center gap-1.5"><i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-flame"></i> Kata Absolut Deteksi</span>`;
+      }
+      if (val.toLowerCase().includes("hoaks") || val.toLowerCase().includes("bohong") || val.toLowerCase().includes("fiktif")) {
+        score -= 30;
+        tagsHTML += `<span class="px-2.5 py-1 rounded-lg bg-amber-950/60 border border-amber-500/40 text-amber-200 flex items-center gap-1.5"><i data-lucide="shield-alert" class="w-3.5 h-3.5 text-amber-400"></i> Label Tanpa Bukti</span>`;
+      }
+
+      score = Math.max(15, score);
+      gauge.style.width = score + "%";
+      scoreBadge.innerText = "Netralitas: " + score + "%";
+
+      if (score < 50) {
+        scoreBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-red-500/20 text-red-300 border border-red-500/40";
+      } else {
+        scoreBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-green-500/20 text-green-300 border border-green-500/40";
+      }
+
+      tagsContainer.innerHTML = tagsHTML || `<span class="text-xs text-slate-400 italic">Tidak ditemukan bias kata absolut yang ekstrem.</span>`;
+      lucide.createIcons();
+
+      // Update Auto-Debiaser
+      debiased.innerText = `"${val.replace(/semua|pasti|hoaks|bohong|fiktif/gi, "sejumlah narasi yang perlu diverifikasi")}"`;
+
+      // Dynamic Kacamata Empati Update
+      document.getElementById('persp-warga').innerText = `"Di bawah asap tebal ini, kami tidak meributkan label '${val.substring(0, 20)}...'. Yang kami butuhkan adalah udara jernih untuk anak-anak kami."`;
+    }
+
+    function copyDebiasedText() {
+      const text = document.getElementById('debiased-text').innerText;
+      navigator.clipboard.writeText(text);
+      alert("Teks netral berhasil disalin!");
+    }
+
+    // -------------------------------------------------------------
+    // FITUR 2: REFLEKSI TOPENG & SIMULASI LOGIC
+    // -------------------------------------------------------------
+    function selectLayer(num) {
+      playGamelanChime(392.00, 'triangle', 1.0);
+      document.querySelectorAll('.layer-view').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.layer-tab').forEach(btn => {
+        btn.classList.remove('bg-goldamber', 'text-midnight', 'shadow');
+        btn.classList.add('text-slate-300');
+      });
+
+      document.getElementById('layer-content-' + num).classList.remove('hidden');
+      const activeBtn = document.getElementById('layer-btn-' + num);
+      activeBtn.classList.add('bg-goldamber', 'text-midnight', 'shadow');
+      activeBtn.classList.remove('text-slate-300');
+    }
+
+    function runSimulation(type) {
+      playGamelanChime(587.33, 'sine', 0.8);
+      const box = document.getElementById('sim-feedback');
+      const title = document.getElementById('sim-title');
+      const score = document.getElementById('sim-score');
+      const desc = document.getElementById('sim-desc');
+
+      box.classList.remove('hidden');
+
+      if (type === 'eufemisme') {
+        title.innerText = 'Dampak: Eufemisme Kaku';
+        score.innerText = 'Integritas Data: 40% | Kepanikan: Rendah (Palsu)';
+        desc.innerText = 'Masyarakat merasa dinina-bobokan. Ketika asap nyata sampai ke permukiman, tingkat ketidakpercayaan terhadap otoritas melonjak tajam.';
+      } else if (type === 'sensasi') {
+        title.innerText = 'Dampak: Sensasional Bombastis';
+        score.innerText = 'Integritas Data: 35% | Kepanikan: Sangat Tinggi';
+        desc.innerText = 'Menimbulkan kepanikan massal dan tuduhan saling tuding di media sosial tanpa memberikan solusi konkrit bagi warga terdampak.';
+      } else {
+        title.innerText = 'Dampak: Transparan & Empatis';
+        score.innerText = 'Integritas Data: 95% | Kepercayaan Publik: Tinggi';
+        desc.innerText = 'Masyarakat menghargai kejujuran data. Pengakuan atas gap statistik SiPongi dan Nusantara Atlas memperkuat kolaborasi penanganan bencana secara dewasa.';
+      }
+    }
+
+    // -------------------------------------------------------------
+    // FITUR 3: MUSEUM SASTRA & PETA SUARA LOGIC
+    // -------------------------------------------------------------
+    const regionalData = {
+      kalteng: {
+        region: "Wilayah: Kalimantan Tengah (2026)",
+        title: '"Nyanyian Hutan yang Terbakar"',
+        body: '"Di koran mereka bertengkar tentang selisih hektare. Di kamar kami, napas anak-anak tersengal. Asap tidak membaca metodologi satelit."'
+      },
+      riau: {
+        region: "Wilayah: Riau (Gambut & Sawit)",
+        title: '"Meranggas di Tanah Gambut"',
+        body: '"Gambut menyimpan api di dalam dadanya, seperti kenangan pahit yang tak pernah benar-benar padam oleh hujan musiman."'
+      },
+      jabar: {
+        region: "Wilayah: Jawa Barat (Krisis Sumber Air)",
+        title: '"Jeritan Mata Air yang Kering"',
+        body: '"Kata \'efisiensi air\' di gedung rapat terasa begitu dingin saat ibu-ibu antre menimba sisa lumpur di dasar sumur."'
+      },
+      papua: {
+        region: "Wilayah: Papua (Bentang Saguku)",
+        title: '"Sunyi di Bawah Kanopi Sagu"',
+        body: '"Batu dan kayu kami tak pernah minta diberi label bahasa asing. Cukup biarkan pohon sagu kami berdiri tegak."'
+      }
+    };
+
+    function loadRegionalText(key) {
+      playGamelanChime(440.00, 'sine', 0.6);
+      const d = regionalData[key];
+      document.getElementById('reg-region').innerText = d.region;
+      document.getElementById('reg-title').innerText = d.title;
+      document.getElementById('reg-body').innerText = d.body;
+    }
+
+    function generatePrompt() {
+      playGamelanChime(659.25, 'triangle', 0.8);
+      const prompts = [
+        "Tuliskan puisi 3 bait tentang selisih angka kebakaran hutan dan penderitaan anak-anak.",
+        "Buatlah monolog singkat seorang petani yang lahannya diklaim 'terkendali' oleh berita resmi.",
+        "Tuliskan surat terbuka warga untuk pembuat kebijakan tentang kejujuran bahasa."
+      ];
+      const randomP = prompts[Math.floor(Math.random() * prompts.length)];
+      document.getElementById('karya-body').value = randomP + "\n\n[Mulai menulis gubahan Anda di sini...]";
+      updateCharCounter();
+    }
+
+    document.getElementById('karya-body')?.addEventListener('input', updateCharCounter);
+
+    function updateCharCounter() {
+      const body = document.getElementById('karya-body').value;
+      const chars = body.length;
+      const words = body.trim() ? body.trim().split(/\s+/).length : 0;
+      document.getElementById('char-counter').innerText = `${chars} Karakter • ${words} Kata`;
+    }
+
+    function exportKarya(type) {
+      const title = document.getElementById('karya-title').value || "Karya_Sastra_TOPENG";
+      const body = document.getElementById('karya-body').value;
+
+      if (type === 'txt') {
+        const element = document.createElement("a");
+        const file = new Blob([`${title}\n\n${body}`], {type: 'text/plain'});
+        element.href = URL.createObjectURL(file);
+        element.download = `${title}.txt`;
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+      } else if (type === 'print') {
+        window.print();
+      }
+    }
+
+    // -------------------------------------------------------------
+    // FITUR 4: PENDAMPING BAHASA & KAMUS LOGIC
+    // -------------------------------------------------------------
+    function filterLexicon() {
+      const query = document.getElementById('lexicon-search').value.toLowerCase();
+      document.querySelectorAll('.lexicon-item').forEach(item => {
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    function sendChatMessage() {
+      const input = document.getElementById('chat-input');
+      const box = document.getElementById('chat-box');
+      const val = input.value.trim();
+
+      if (!val) return;
+
+      playGamelanChime(523.25, 'sine', 0.5);
+
+      // User Message
+      const userMsg = document.createElement('div');
+      userMsg.className = "bg-midnight p-3 rounded-2xl border border-goldamber/40 text-right space-y-1";
+      userMsg.innerHTML = `<span class="font-bold text-amber-300 block">Anda:</span><p class="text-slate-200">${val}</p>`;
+      box.appendChild(userMsg);
+
+      input.value = "";
+      box.scrollTop = box.scrollHeight;
+
+      // Simulated Expert Response
+      setTimeout(() => {
+        playGamelanChime(659.25, 'sine', 0.7);
+        const expertMsg = document.createElement('div');
+        expertMsg.className = "bg-deepblue p-3 rounded-2xl border border-goldamber/20 space-y-1";
+        expertMsg.innerHTML = `<span class="font-bold text-gold block">Pakar Bahasa:</span><p class="text-slate-200">"Gagasan '${val.substring(0, 25)}...' sangat bernas. Cobalah ganti diksi kaku di dalamnya dengan metaporikal alam Nusantara agar dampaknya lebih menyentuh pembaca."</p>`;
+        box.appendChild(expertMsg);
+        box.scrollTop = box.scrollHeight;
+      }, 800);
+    }
+
+    function handleChatKey(e) {
+      if (e.key === 'Enter') sendChatMessage();
+    }
+  </script>
+</body>
+</html>

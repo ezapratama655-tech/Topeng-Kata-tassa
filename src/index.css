@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-cinzel: 'Cinzel', serif;
+    --font-playfair: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #040914;
+    color: #e2e8f0;
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #040914;
+}
+::-webkit-scrollbar-thumb {
+  background: #d97706;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* Glassmorphism Cards with Bhineka Tunggal Rupa Color Harmony */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(14, 39, 58, 0.88) 0%, rgba(19, 21, 51, 0.9) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(45, 212, 191, 0.38);
+  box-shadow: 0 12px 35px -8px rgba(0, 0, 0, 0.75), 0 0 20px rgba(20, 184, 166, 0.12);
+}
+
+.glass-panel-gold {
+  background: linear-gradient(135deg, rgba(38, 18, 56, 0.92) 0%, rgba(14, 42, 56, 0.94) 55%, rgba(9, 23, 40, 0.94) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(245, 158, 11, 0.6);
+  box-shadow: 0 16px 45px -10px rgba(0, 0, 0, 0.85), 0 0 35px rgba(245, 158, 11, 0.2);
+}
+
+/* Lontar Traditional Manuscript Card - Dark Antique Royal Lontar with White Text */
+.lontar-parchment {
+  background: linear-gradient(135deg, #170d06 0%, #261408 50%, #150a04 100%);
+  color: #ffffff;
+  border: 1.5px solid #d97706;
+  background-image: radial-gradient(rgba(245, 158, 11, 0.15) 0.6px, transparent 0.6px);
+  background-size: 16px 16px;
+  box-shadow: inset 0 0 24px rgba(217, 119, 6, 0.15), 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Authentic Traditional Lontar Palm-Leaf Ribbon - Rich Dark Antique Lontar with White Inscription */
+.lontar-scroll-strip {
+  background: linear-gradient(180deg, #160e07 0%, #251409 20%, #2f190c 50%, #251409 80%, #160e07 100%);
+  color: #ffffff;
+  border-top: 2.5px solid #f59e0b;
+  border-bottom: 2.5px solid #f59e0b;
+  box-shadow: 
+    inset 0 14px 22px -10px rgba(0, 0, 0, 0.85),
+    inset 0 -14px 22px -10px rgba(0, 0, 0, 0.85),
+    0 15px 35px -5px rgba(0, 0, 0, 0.7);
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(245, 158, 11, 0.08) 0px,
+    rgba(245, 158, 11, 0.08) 2px,
+    transparent 2px,
+    transparent 28px
+  );
+}
+
+/* Lontar Cylindrical Wooden Roller Rod */
+.lontar-wooden-roller {
+  background: linear-gradient(90deg, #271406 0%, #451a03 25%, #78350f 50%, #451a03 75%, #271406 100%);
+  box-shadow: 
+    inset 2px 0 6px rgba(255, 215, 0, 0.25),
+    inset -2px 0 6px rgba(0, 0, 0, 0.8),
+    0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Subtle Pulsing / Celestial Glow */
+@keyframes celestialGlow {
+  0%, 100% {
+    opacity: 0.18;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.32;
+    transform: scale(1.04);
+  }
+}
+
+.celestial-glow {
+  animation: celestialGlow 8s infinite ease-in-out;
+}
+
+/* Colors & Aesthetics Inspired by Bhineka Tunggal Rupa Artwork */
+.bg-bhineka-radial {
+  background: radial-gradient(circle at 50% 18%, #2a164d 0%, #150d30 35%, #091b29 70%, #060914 100%);
+}
+
+.glow-rembulan {
+  box-shadow: 0 0 90px 25px rgba(254, 240, 138, 0.22), 0 0 160px 60px rgba(245, 158, 11, 0.16);
+}
+
+.text-bhineka-gold {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef08a 25%, #f59e0b 60%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-bhineka-ocean {
+  background: linear-gradient(135deg, #a7f3d0 0%, #2dd4bf 30%, #38bdf8 65%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-bhineka {
+  background: linear-gradient(135deg, rgba(17, 24, 58, 0.82) 0%, rgba(10, 37, 51, 0.85) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  box-shadow: 0 14px 35px -8px rgba(0, 0, 0, 0.65), 0 0 20px rgba(20, 184, 166, 0.1);
+}
+
+.card-bhineka-gold {
+  background: linear-gradient(135deg, rgba(38, 20, 56, 0.85) 0%, rgba(18, 26, 61, 0.9) 50%, rgba(13, 38, 48, 0.9) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(245, 158, 11, 0.5);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.75), 0 0 30px rgba(245, 158, 11, 0.15);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef08a 25%, #f59e0b 60%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-teal-gradient {
+  background: linear-gradient(135deg, #a7f3d0 0%, #2dd4bf 30%, #38bdf8 65%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+

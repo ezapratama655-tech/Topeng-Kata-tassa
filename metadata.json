@@ -1,0 +1,6 @@
+{
+  "name": "TOPENG - Telaah Sastra & Diskursus Nusantara",
+  "description": "Platform analisis wacana, dekonstruksi bias bahasa, verifikasi data empiris, dan gubahan sastra empati Nusantara yang dapat diakses oleh semua orang.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

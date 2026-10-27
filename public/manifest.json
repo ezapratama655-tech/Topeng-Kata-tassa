@@ -1,0 +1,29 @@
+{
+  "name": "TOPENG - Telaah Sastra & Diskursus Nusantara",
+  "short_name": "TOPENG",
+  "description": "Platform edukasi sastra, analisis wacana, dekonstruksi bias bahasa, dan empati budaya Nusantara. Aman dan ramah untuk segala usia, termasuk pelajar di bawah 17 tahun.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#040914",
+  "theme_color": "#0e273a",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "id",
+  "categories": ["education", "books", "culture", "family", "reference"],
+  "iarc_rating_id": "ALL_AGES",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/assets/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
